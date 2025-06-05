@@ -6,6 +6,10 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.example.deokbook.domain.loan.entity.Loan;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -17,7 +21,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(unique = true, nullable = false)
     @NotBlank
     private String email;
     private String password;
@@ -32,4 +36,7 @@ public class User {
 
     @NotBlank
     private Character rule;
+
+    @OneToMany(mappedBy = "user")
+    private List<Loan> loans = new ArrayList<>();
 }
