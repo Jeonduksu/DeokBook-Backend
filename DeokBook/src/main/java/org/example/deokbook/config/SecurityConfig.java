@@ -18,6 +18,8 @@ public class SecurityConfig {
                 .csrf().disable()
                 .headers(headers -> headers.frameOptions().disable())
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/login","/api/signup").permitAll()
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/api/admin/**").authenticated()
                         .requestMatchers("/api/book/**").permitAll()
