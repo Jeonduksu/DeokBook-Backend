@@ -1,4 +1,4 @@
-package org.example.deokbook.auth.Service;
+package org.example.deokbook.auth.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.deokbook.auth.CustomUserDetails;
