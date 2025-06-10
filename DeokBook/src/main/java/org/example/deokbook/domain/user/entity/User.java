@@ -40,4 +40,14 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<Loan> loans = new ArrayList<>();
+    
+    //업데이트용 메서드
+    public User updateUser(String email, String password, String name, String phone, String userMemo, Character rule) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.phone = phone;
+        this.userMemo = userMemo;
+        this.rule = rule;
+    }
 }

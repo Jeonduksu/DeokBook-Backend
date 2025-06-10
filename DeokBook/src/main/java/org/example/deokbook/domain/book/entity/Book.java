@@ -13,6 +13,7 @@ import java.util.List;
 
 @Entity
 @Getter
+@Table(name = "books")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Book {
@@ -41,4 +42,22 @@ public class Book {
 
     @OneToMany(mappedBy = "book")
     private List<Loan> loans = new ArrayList<>();
+
+
+    public void updateBook(String title, String author, String publisher, String publishedDate, Integer price, Character status) {
+        this.title = title;
+        this.author = author;
+        this.publisher = publisher;
+        this.publishedDate = publishedDate;
+        this.price = price;
+        this.status = status;
+    }
+
+    public boolean isAvailable() {
+        return this.status != null && this.status == 'Y';
+    }
+
+    public void setAvailable(Character status) {
+        this.status = status;
+    }
 }
