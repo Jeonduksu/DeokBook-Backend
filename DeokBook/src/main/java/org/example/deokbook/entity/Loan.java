@@ -24,7 +24,6 @@ public class Loan {
     @Column(nullable = false)
     private LocalDateTime dueDate;
 
-    @Column(nullable = false)
     private LocalDateTime returnDate;
 
     @Column(nullable = false)
